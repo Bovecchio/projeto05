@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-    <head>
+    <head>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Clientes - JDBC WebApp</title>
     </head>
@@ -22,12 +22,17 @@
                 <th>ID</th>
                 <th>NOME</th>
                 <th>E-mail</th>
+                <th>Ações</th>
             </tr>
             <%for(Customer c: Customer.getList()){%>
             <tr>
                 <td><%= c.getId() %></td>
                 <td><%= c.getName() %></td>
                 <td><%= c.getEmail() %></td>
+                <td>
+                    <a href="compras.jsp">
+                   detalhes</a>
+                </td>
             </tr>
             <%}%>
         </table>
