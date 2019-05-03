@@ -38,15 +38,15 @@ public class Product {
         return list;
    }
 
+    public Product() {
+    }
+
     public Product(int id, int quant, double price) {
         this.id = id;
         this.quant = quant;
         this.price = price;
     }
 
-    private Product() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public int getId() {
         return id;

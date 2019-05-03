@@ -32,6 +32,7 @@
                 <td>
                     <a href="compras.jsp">
                    detalhes</a>
+                 
                 </td>
             </tr>
             <%}%>
