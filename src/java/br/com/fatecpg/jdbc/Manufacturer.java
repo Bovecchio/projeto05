@@ -27,12 +27,12 @@ public class Manufacturer {
     String url = "jdbc:derby://localhost:1527/sample";
         try (Connection con = DriverManager.getConnection(url,"app","app"); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT * FROM MANUFACTURER")) {
             while(rs.next()){
-                Manufacturer c = new Manufacturer();
-                c.setId(rs.getInt("MANUFACTURER_ID"));
-                c.setName(rs.getString("NAME"));
-                c.setEmail(rs.getString("EMAIL"));
-                c.setCity(rs.getString("CITY"));
-                list.add(c);
+                Manufacturer m = new Manufacturer();
+                m.setId(rs.getInt("MANUFACTURER_ID"));
+                m.setName(rs.getString("NAME"));
+                m.setEmail(rs.getString("EMAIL"));
+                m.setCity(rs.getString("CITY"));
+                list.add(m);
             }
  }
      return list;

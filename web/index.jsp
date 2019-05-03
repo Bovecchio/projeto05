@@ -17,4 +17,5 @@
         <h2>Início</h2>
         BLA BLA BLA
     </body>
+    <%@include file="WEB-INF/jspf/footer.jspf" %>
 </html>

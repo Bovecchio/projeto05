@@ -4,8 +4,7 @@
     Author     : john
 --%>
 
-<%@page import ="br.com.fatecpg.jdbc.Product" %>
-
+<%@page import="br.com.fatecpg.jdbc.Product" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Produtos</title>
     </head>
+    <body>    
     <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>JDBC WebApp</h1>
         <h2>Produtos</h2>
@@ -21,8 +21,7 @@
             <tr>
                 <th>ID</th>
                 <th>CODIGO</th>
-                <th>PREÇO</th>
-                
+                <th>PREÇO</th>                
             </tr>
             <%for(Product f: Product.getList()){%>
             <tr>
@@ -35,4 +34,6 @@
         <%}catch(Exception e){%>
               <h3 style="color: red">j <%= e.getMessage() %> </h3>
         <%}%>
+        </body>
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
 </html>
