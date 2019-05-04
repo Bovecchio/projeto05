@@ -16,6 +16,7 @@
          <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>JDBC WebApp</h1>
         <h2>Clientes</h2>
+        
         <%try{%>
         <table border = 1>
             <tr>
@@ -30,7 +31,7 @@
                 <td><%= c.getName() %></td>
                 <td><%= c.getEmail() %></td>
                 <td>
-                   <a href="compras.jsp?parametro=<%=c.getId()%>">
+                   <a href="compras.jsp?id=<%=c.getId()%>">
                 ver compras</a>
                  
                 </td>

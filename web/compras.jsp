@@ -4,11 +4,15 @@
     Author    john : 
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import ="br.com.fatecpg.jdbc.Product" %>
 <%@page import="br.com.fatecpg.jdbc.Customer"%>
 
-<%    String parametro = request.getParameter("id");%>
-<%int id = Integer.parseInt(parametro);%>
+<%    String id = request.getParameter("id");%>
+<%int  parametro = Integer.parseInt(id);%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,17 +29,17 @@
         <table border = 1>
             <tr>
                 <th>ID Cliente</th>
-                <th>Nome</th>
                 <th>ID Produto</th>
                 <th>Quantidade</th>
                 <th>Preço</th>
             </tr>
-            <%for(Customer c: Customer.getList()){%>
-            <%if (c.getId() == id){%>
+            
+             <%for(Customer c: Customer.getList()){%>
+              <%if(c.getId()== parametro){%>
              <%for(Product f: Product.getList()){%>
+            
             <tr>
-                <td><%= c.getId() %></td>
-                 <td><%= c.getName() %></td>
+                <td><%= parametro %></td>
                 <td><%= f.getId() %></td>
                 <td><%= f.getQuant() %></td>
                 <td><%= f.getPrice() %></td>
@@ -43,6 +47,8 @@
             <%}%>
             <%}%>
             <%}%>
+            
+            
         </table>
         <%}catch(Exception e){%>
               <h3 style="color: red">Erro: <%= e.getMessage() %> </h3>
