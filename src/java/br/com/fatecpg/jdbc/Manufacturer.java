@@ -33,9 +33,11 @@ public class Manufacturer {
                 m.setEmail(rs.getString("EMAIL"));
                 m.setCity(rs.getString("CITY"));
                 list.add(m);
-            }
- }
+                  }
+            rs.close(); st.close(); con.close();
+             
      return list;
+    }
     }
     public Manufacturer(){
     

@@ -1,6 +1,8 @@
-
-
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package br.com.fatecpg.jdbc;
 
 import java.sql.Connection;
@@ -11,67 +13,66 @@ import java.util.ArrayList;
 
 /**
  *
- * @author John
+ * @author finha
  */
 public class Product {
+    private int product_id;
+    private int manufacturer_id;
+    private int quantity_on_hand;
+    private String description;
     
-    private int id;
-    private double price;
-    private int quant;
-    
-    
-    
-   public static ArrayList<Product>getList()throws Exception{
-       ArrayList<Product>list  = new ArrayList<> ();
-       Class.forName("org.apache.derby.jdbc.ClientDriver");
-       String url = "jdbc:derby://localhost:1527/sample";
-       try (Connection con = DriverManager.getConnection(url,"app","app"); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT * FROM PURCHASE_ORDER")) {
+    public static ArrayList<Product> getList() throws Exception{
+    ArrayList<Product> list = new ArrayList<> ();
+    Class.forName("org.apache.derby.jdbc.ClientDriver");
+    String url = "jdbc:derby://localhost:1527/sample";
+        try (Connection con = DriverManager.getConnection(url,"app","app"); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT * FROM PRODUCT")) {
             while(rs.next()){
-                Product f = new Product();
-                f.setId(rs.getInt("PRODUCT_ID"));
-                f.setQuant(rs.getInt("QUANTITY"));
-                f.setPrice(rs.getDouble("SHIPPING_COST"));
-                list.add(f);
-            }
- 
-   }
-        return list;
-   }
+                Product p = new Product();
+                p.setProduct_id(rs.getInt("PRODUCT_ID"));
+                p.setDescription(rs.getString("DESCRIPTION"));
+                p.setManufacturer_id(rs.getInt("MANUFACTURER_ID"));
+                p.setQuantity_on_hand(rs.getInt("QUANTITY_ON_HAND"));
+                list.add(p);
+                   }
+            rs.close(); st.close(); con.close();
+             
+     return list;
+    }
+    }
 
     public Product() {
     }
 
-    public Product(int id, int quant, double price) {
-        this.id = id;
-        this.quant = quant;
-        this.price = price;
+    public int getProduct_id() {
+        return product_id;
     }
 
-
-    public int getId() {
-        return id;
+    public void setProduct_id(int product_id) {
+        this.product_id = product_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getManufacturer_id() {
+        return manufacturer_id;
     }
 
-    public double getPrice() {
-        return price;
+    public void setManufacturer_id(int manufacturer_id) {
+        this.manufacturer_id = manufacturer_id;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public int getQuantity_on_hand() {
+        return quantity_on_hand;
     }
 
-    public int getQuant() {
-        return quant;
+    public void setQuantity_on_hand(int quantity_on_hand) {
+        this.quantity_on_hand = quantity_on_hand;
     }
 
-    public void setQuant(int quant) {
-        this.quant = quant;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     
-    }
-    
-
+}

@@ -1,9 +1,11 @@
 <%-- 
-    Document   : compras
-    Created on : 03/05/2019, 08:56:54
-    Author    john : 
+    Document   : produto
+    Created on : 04/05/2019, 21:40:54
+    Author    finha : 
 --%>
 
+<%@page import="br.com.fatecpg.jdbc.Manufacturer"%>
+<%@page import="br.com.fatecpg.jdbc.Product"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Statement"%>
@@ -24,29 +26,31 @@
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>JDBC WebApp</h1>
-        <a href="customers.jsp">Voltar</a>
-        <h2>Compras do cliente</h2>        
+        <a href="manufacturer.jsp">Voltar</a>
+        <h2>LISTA DOS PRODUTOS DO FABRICANTE</h2>
+        
         
         <%try{%>
         <table border = 1>
             <tr>
-                <th>ID Cliente</th>
-                <th>Número do Serviço</th>
-                <th>ID Produto</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
+                 <th>ID FABRICANTE</th>
+                <th>ID PRODUTO</th>
+                <th>DESCRIÇÃO</th>
+                <th>ID FORNECEDOR</th>
+                <th>QUANTIDADE</th>               
+                
             </tr>
             
-             <%for(Customer c: Customer.getList()){%>
-              <%if(c.getId()== parametro){%>
-             <%for(Purchase f: Purchase.getList()){%>
+            <%for(Manufacturer m: Manufacturer.getList()){%>
+            <%if(m.getId()== parametro){%>
+              <%for(Product p: Product.getList()){%>
             
             <tr>
                 <td><%= parametro %></td>
-                <td><%= f.getOrder_num()%></td>
-                <td><%= f.getId() %></td>
-                <td><%= f.getQuant() %></td>
-                <td><%= f.getPrice() %></td>
+                <td><%= p.getProduct_id()%></td>
+                <td><%= p.getDescription() %></td>
+                <td><%= p.getManufacturer_id() %></td>
+                <td><%= p.getQuantity_on_hand() %></td>
             </tr>
             <%}%>
             <%}%>

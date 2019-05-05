@@ -33,8 +33,10 @@ public class Customer {
                 c.setEmail(rs.getString("EMAIL"));
                 list.add(c);
             }
- }
+            rs.close(); st.close(); con.close();
+             
      return list;
+    }
     }
     public Customer(){
     
