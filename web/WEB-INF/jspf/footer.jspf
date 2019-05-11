@@ -1,10 +1,44 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 
-<div class="topo">
-<footer>    
-    <h4>Desenvolvedores:</h4> <br>
-    <a href="https://github.com/joaomarcos70">João Marcos</a> <br>
-    <a href="https://github.com/Bovecchio/projeto05">Rafael Ribeiro</a>
-</footer>
-</div>    
+<style>
+    footer{
+        background-color: #2F4F4F;
+        padding: 10px 20px;
+        font-family: Andale Mono, monospace;
+    }
+    a{
+        color: #000000;
+        text-align:center;
+        font-weight: bold;
+    }
+    h2{ 
+        text-align: center;
+        font-weight: bold;
+        font-size:20px;
+        
+    }
+    #foot {
+        text-align: center;
+        color: #ffffff;
+        position: relative;
+    }
+    th{
+        text-align: center;
+    }
+    td{
+        text-align: center;
+    }
+    table{
+        width:600;
+        height:600;
+    }
+</style>
+<footer>
+<hr><div id="foot">
+        <h2>Desenvolvedores: </h2> <br>
+        <a href="https://github.com/joaomarcos70" target="_blank">João Marcos</a> <br>
+        <a href="https://github.com/Bovecchio/projeto05" target="_blank">Rafael Ribeiro</a><br>
+        
+   </div>
+</footer> 
